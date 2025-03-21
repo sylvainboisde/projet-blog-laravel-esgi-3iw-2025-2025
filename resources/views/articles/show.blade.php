@@ -11,7 +11,7 @@
             </h2>
             <p class="text-sm text-slate-500">Créé {{ $article->created_at->diffForHumans() }}</p>
             <p>{{ $article->content }}</p>
-
+            <p>{{ $article->category->title }}</p>
             <div class="flex gap-4">
 
 
@@ -20,7 +20,6 @@
                 <form action="{{ route('articles.destroy', $article) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <input type="text" name="test" id="">
                     <button type="submit" class="text-red-500 hover:underline">Supprimer</button>
                 </form>
             </div>

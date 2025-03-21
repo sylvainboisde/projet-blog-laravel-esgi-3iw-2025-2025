@@ -11,6 +11,11 @@
                 </h2>
                 <p class="text-sm text-slate-500">Créé {{ $article->created_at->diffForHumans() }}</p>
                 <p>{{ $article->content }}</p>
+                <p>{{ $article->category->title ?? 'pas de catégorie' }}</p>
+
+                @if($image = $article->getFirstMedia('image'))
+                    <img src="{{ $image->getUrl() }}" alt="">
+                @endif
             </div>
         @endforeach
 
